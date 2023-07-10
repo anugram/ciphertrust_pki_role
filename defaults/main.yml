@@ -37,3 +37,7 @@ csr_names_var:
   L: ott
   ST: ontario
   C: CA
+
+cert_purpose: server
+cert_duration: 365
+cert_name: ansibleServerCert

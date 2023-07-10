@@ -35,5 +35,17 @@
     encryptionAlgo: "{{ enc_algo }}" 
   register: csr
 
+# Issue Cert from the CA
+- name: Issue Certificate
+  anugram.cm_pki.cm_local_ca:
+    localNode: "{{ this_node_connection_string }}"
+    op_type: issue-cert
+    id: "{{ ca['response']['id'] }}"
+    csr: "{{ csr['response']['data']['csr'] }}"
+    purpose: "{{ cert_purpose }}"
+    duration: "{{ cert_duration }}"
+    name: "{{ cert_name }}"
+  register: cert
+
 - name: Debug Output
-  debug: var=csr
+  debug: var=cert
