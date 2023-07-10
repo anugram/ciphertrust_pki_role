@@ -23,6 +23,7 @@ ca_cn: ansible_local_ca
 ca_name: ansibleDevCA
 ca_algo: RSA
 ca_key_size: 4096
+ca_duration: 365
 
 csr_cn: server
 csr_name: serverCert
@@ -34,5 +35,5 @@ csr_names_var:
   O: ciphertrust
   OU: dev
   L: ott
-  ST: ON
+  ST: ontario
   C: CA
