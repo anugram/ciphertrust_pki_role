@@ -17,7 +17,7 @@ ca_names_var:
   O: ciphertrust
   OU: dev
   L: ott
-  ST: ON
+  ST: ontarion
   C: CA
 ca_cn: ansible_local_ca
 ca_name: ansibleDevCA

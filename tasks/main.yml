@@ -10,7 +10,13 @@
     size: "{{ ca_key_size }}"
     names:
       - "{{ ca_names_var }}"
-  ignore_errors: true
+  register: ca
+
+- name: Self sign the CA
+  anugram.cm_pki.cm_local_ca:
+    localNode: "{{ this_node_connection_string }}"
+    op_type: create
+    id: "{{ ca['response']['id'] }}"
 
 # Create a CSR with a private key
 - name: Create CSR
