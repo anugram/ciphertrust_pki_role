@@ -25,7 +25,7 @@
       - "{{ server_ip }}"
     names:
       - "{{ csr_names_var }}"
-    encryptionAlgo: "{{ ency_algo }}" 
+    encryptionAlgo: "{{ enc_algo }}" 
   register: csr
 
 - name: Debug Output
