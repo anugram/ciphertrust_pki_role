@@ -15,7 +15,7 @@
 - name: Self sign the CA
   anugram.cm_pki.cm_local_ca:
     localNode: "{{ this_node_connection_string }}"
-    op_type: create
+    op_type: self-sign
     id: "{{ ca['response']['id'] }}"
 
 # Create a CSR with a private key
