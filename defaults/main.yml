@@ -3,7 +3,7 @@
 this_node_address: 20.20.20.20
 this_node_private_ip: 10.10.10.10
 this_node_username: admin
-this_node_password: Secure01Pwd!
+this_node_password: StorngPwd!
 
 this_node_connection_string:
   server_ip: "{{ this_node_address }}"

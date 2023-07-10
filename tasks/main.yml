@@ -1,7 +1,7 @@
 ---
 # Create a new Local CA on CipherTrust Manager
 - name: Add Local CA
-  ciphertrust.crypto.cm_local_ca:
+  anugram.cm_pki.cm_local_ca:
     localNode: "{{ this_node_connection_string }}"
     op_type: create
     cn: "{{ ca_cn }}"
@@ -14,7 +14,7 @@
 
 # Create a CSR with a private key
 - name: Create CSR
-  ciphertrust.crypto.cm_local_ca:
+  anugram.cm_pki.cm_local_ca:
     localNode: "{{ this_node_connection_string }}"
     op_type: create-csr-key
     cn: "{{ csr_cn }}"
