@@ -3,6 +3,9 @@ ciphertrust_pki_role
 
 This role allows the administrator to set up a local CA, create Certificate Signing Request with the private key, and get a PKI certificate signed by the same local CA all using Thales CipherTrust Manager APIs.
 
+Install role -
+ansible-galaxy install anugram.ciphertrust_pki_role
+
 Requirements
 ------------
 
@@ -37,7 +40,7 @@ Please refer to the actual Ansible collection documentation for more info around
 
 Dependencies
 ------------
-
+Install below collection -
 ansible-galaxy collection install anugram.cm_pki
 
 Example Playbook
