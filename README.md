@@ -1,38 +1,60 @@
-Role Name
-=========
+ciphertrust_pki_role
+====================
 
-A brief description of the role goes here.
+This role allows the administrator to set up a local CA, create Certificate Signing Request with the private key, and get a PKI certificate signed by the same local CA all using Thales CipherTrust Manager APIs.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+The only requirement apart from Ansible is availability of a running instance of Thales CipherTrust Manager for which you may use the free-forever community edition available at https://ciphertrust.io
 
 Role Variables
 --------------
+Update the below variables in default/main.yml file
+Please refer to the actual Ansible collection documentation for more info around the role variable [here] (https://anugram.github.io/ciphertrust.crypto/collections/anugram/cm_pki/cm_local_ca_module.html#ansible-collections-anugram-cm-pki-cm-local-ca-module)
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+| Variable Name | Description |
+|---|---|
+| this_node_address | IP or FQDN of thr CipherTrust Manager or CM |
+| this_node_username | admin username of CM |
+| this_node_password | password of the admin user |
+| ca_names_var | key-value formatted subject names for the CA cert |
+| ca_cn | common name for the CA cert |
+| ca_name | CM name for the local CA |
+| ca_algo | CA key algorthm RSA or ECDSA |
+| ca_key_size | Key size depending on algorithm |
+| ca_duration | length for which CA is valid |
+| csr_cn | common name to include in the certificate signing request |
+| csr_name | CM name for the CSR |
+| csr_algo | key algorthm RSA or ECDSA |
+| csr_key_size | Key size depending on algorithm |
+| server_ip | IP address to include in teh certificate if any |
+| enc_algo | encryption algo |
+| csr_names_var | key-value formatted subject names for the issued cert |
+| cert_purpose | purpose of cert like server or client |
+| cert_duration | length for which certificate is valid |
+| cert_name | CM name for the certificate |
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+ansible-galaxy collection install anugram.cm_pki
 
 Example Playbook
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - hosts: servers
+    - hosts: localhost
       roles:
-         - { role: username.rolename, x: 42 }
+         - ciphertrust_pki_role
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Anurag Jain, Developer Advocate at ThalesGroup
